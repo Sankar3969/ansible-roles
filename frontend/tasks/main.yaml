@@ -9,19 +9,10 @@
       state: restarted
       enabled: yes
 
-  - name: remove the html folder content
-    ansible.builtin.file:
-      path: /usr/share/nginx/html
-      state: absent   
-  - name: remove the html folder content
-    ansible.builtin.file:
-      path: /usr/share/nginx/html  
-      state: directory
-
-  - name: download files
-    ansible.builtin.get_url:
-        url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-        dest: /tmp/frontend.zip
+  - name: get the tasks from common and extract the code 
+      ansible.builtin.import_role:
+        name: common
+        tasks_from: app_pre_req
   
   - name: extract the files from Zip file
     ansible.builtin.unarchive:
