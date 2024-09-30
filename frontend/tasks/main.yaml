@@ -33,9 +33,11 @@
     ansible.builtin.template:        
         src: expense.conf.j2
         dest: /etc/nginx/default.d/expense.conf 
- 
-  - name: starting the nginx server
-    ansible.builtin.service:
-      name: nginx
-      state: restarted
-      enabled: yes            
+    notify:
+    - Restart nginx # This should match with handlers name 
+  # - name: starting the nginx server
+  #   ansible.builtin.service:
+  #     name: nginx
+  #     state: restarted
+  #     enabled: yes            
+      
