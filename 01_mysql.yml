@@ -2,7 +2,6 @@
   hosts: mysql
   become: yes
   vars_files:
-   - /home/ec2-user/var/expense/credentials-mysql.yml
-  remote_src: yes
+  - /home/ec2-user/var/expense/credentials-mysql.yml
   roles:
     - mysql
