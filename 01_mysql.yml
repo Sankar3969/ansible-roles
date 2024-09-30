@@ -2,6 +2,6 @@
   hosts: mysql
   become: yes
   vars_files:
-    - /var/expense/credentials-mysql.yml
+  - /var/expense/credentials-mysql.yml
   roles:
     - mysql
