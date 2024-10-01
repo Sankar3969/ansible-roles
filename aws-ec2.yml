@@ -4,15 +4,7 @@ regions:
   - us-east-1
 filters:
   tag:Name:
-    - 'instance-01'
-    - 'instance-03'
-include_filters:
-- tag:Name:
-  - 'instance-02'
-  - 'instance-04'
-exclude_filters:
-- tag:Name:
-  - 'frontend'
+    - 'frontend'
 hostnames:
   - dns-name
   - tag:Name
