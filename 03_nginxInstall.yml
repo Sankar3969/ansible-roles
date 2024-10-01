@@ -1,5 +1,5 @@
 - name: Nginx installation
-  hosts: nginx
+  hosts: all
   become: yes
   serial: 3
   tasks:
