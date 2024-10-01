@@ -25,7 +25,8 @@
         name: common
         tasks_from: app_pre_req
 
-    tags: deployments 
+    tags: 
+    - deployments: 
     - name: install the npm dependencies
       ansible.builtin.command: npm install
       args:
