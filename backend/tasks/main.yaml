@@ -27,8 +27,7 @@
 
      
     - name: install the npm dependencies
-      tags: 
-      - deployments 
+      tags: deployments 
       ansible.builtin.command: npm install
       args:
         chdir: /app     
