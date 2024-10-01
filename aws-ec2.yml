@@ -1,12 +1,22 @@
-- name: dynamic inventory plugin
-  plugin: amazon.aws.aws_ec2
-  regions:
+# demo.aws_ec2.yml
+plugin: amazon.aws.aws_ec2
+regions:
   - us-east-1
-  filters:
-    tag: name: - 'frontend'
-    instance-state-name : running
-  hostnames:
-    - private-ip-address
-  compose:
-    ansible_host: private_ip_address  
-
+filters:
+  tag:Name:
+    - 'instance-01'
+    - 'instance-03'
+include_filters:
+- tag:Name:
+  - 'instance-02'
+  - 'instance-04'
+exclude_filters:
+- tag:Name:
+  - 'frontend'
+hostnames:
+  - dns-name
+  - tag:Name
+  - private-ip-address
+compose:
+  # This sets the `ansible_host` variable to connect with the private IP address without changing the hostname.
+  ansible_host: private_ip_address
